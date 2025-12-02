@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="styles/dashboard.css">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <h1 class="logo">My Account</h1>
+            <a id = "signUpBtn" href = "signup.html" class = "button">Sign Up</a>
+            <a id = "loginBtn" href = "login.html" class = "button">Login</a>
+            <a id="logoutBtn" class = "button">Logout</a>
+
+            <button id = "themeToggle">
+                <span class = "arrow">🌓</span>
+            </button>
+        </nav>
+
+        <main class="container">
+
+            <section class="welcome-card">
+                <h2>Welcome, <span id="username"></span></h2>
+                <p>Your personal hub for all apps.</p>
+            </section>
+
+            <section class="apps-section">
+                <h3>Your Apps</h3>
+
+                <div class="apps-grid">
+
+                    <a class="app-card" href="https://z-sk1.github.io/keep-track">
+                        <h4>💸 Expense Tracker</h4>
+                        <p>Track your spending</p>
+                    </a>
+
+                    <a class="app-card" href="https://z-sk1.github.io/remind-me">
+                        <h4>📝 Todo Notes</h4>
+                        <p>Keep track of tasks</p>
+                    </a>
+
+                    <!-- Add more tiles later -->
+                </div>
+            </section>
+        </main>
+
+        <script src="scripts/dashboard.js"></script>
+        <script src = "scripts/onClick.js"></script>
+    </body>
+</html>
