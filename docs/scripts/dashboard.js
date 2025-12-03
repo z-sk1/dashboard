@@ -16,7 +16,17 @@ themeToggle.addEventListener("click", () => {
     const newTheme = document.body.classList.toggle("dark") ? "dark" : "light";
     localStorage.setItem("theme", newTheme);
     themeToggle.textContent = newTheme === "dark" ? "☀️" : "🌙";
+    updateChartColors();
 });
+
+function updateChartColors() {
+    if (!chart) return;
+
+    chart.options.plugins.legend.labels.color = 
+        getComputedStyle(document.body).getPropertyValue("--text");
+
+    chart.update();
+}
 
 function updateButtons() {
     const token = localStorage.getItem("token");
@@ -39,4 +49,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("username").innerHTML = username;
     if (!totalSpent) return;
     document.getElementById("totalSpent").innerHTML = totalSpent;
+    loadCategoryChart();
 });

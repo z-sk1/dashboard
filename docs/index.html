@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard</title>
         <link rel="stylesheet" href="styles/dashboard.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <body>
@@ -40,6 +41,10 @@
                     <a class="app-card" href="https://z-sk1.github.io/remind-me">
                         <h4>📝 Todo Notes</h4>
                         <p>Keep track of tasks</p>
+                        <div class="chart-card">
+                            <h3>Spending Breakdown</h3>
+                            <canvas id="categoryChart"></canvas>
+                        </div>
                     </a>
 
                     <!-- Add more tiles later -->
@@ -49,5 +54,6 @@
 
         <script src="scripts/dashboard.js"></script>
         <script src = "scripts/onClick.js"></script>
+        <script src = "scripts/chart.js"></script>
     </body>
 </html>
