@@ -39,13 +39,19 @@ async function loadUser() {
     localStorage.setItem("username", data.username);
 }
 
-async function loadTotal() {
+async function loadExpenseTotal() {
     const res = await fetch(`${API_BASE}/expenses/total`, {
         headers: { "Authorization": `Bearer ${token}` }
     });
 
     const data = await res.json();
     localStorage.setItem("totalSpent", data.total.toFixed(2));
+}
+
+async function loadNoteTotal() {
+    const res = await fetch(`${API_BASE}/notes/total`, {
+        headers: { "Autho" }
+    });
 }
 
 async function login() {
