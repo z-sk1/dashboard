@@ -39,6 +39,15 @@ async function loadUser() {
     localStorage.setItem("username", data.username);
 }
 
+async function loadTotal() {
+    const res = await fetch(`${API_BASE}/expenses/total`, {
+        headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    const data = await res.json();
+    localStorage.setItem("totalSpent", data.total.toFixed(2));
+}
+
 async function login() {
     const username = document.getElementById("loginUsername").value.trim();
     const password = document.getElementById("loginPassword").value.trim();
@@ -57,6 +66,7 @@ async function login() {
     if (res.ok && data.token) {
         localStorage.setItem("token", data.token);
         loadUser();
+        loadTotal();
         alert("Login successful!");
     } else {
         alert(data.error || "Login failed");

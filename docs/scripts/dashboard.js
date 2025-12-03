@@ -1,5 +1,6 @@
 const token = localStorage.getItem("token");
 const username = localStorage.getItem("username");
+const totalSpent = localStorage.getItem("totalSpent");
 
 const themeToggle = document.getElementById("themeToggle");
 
@@ -36,4 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateButtons();
     if (!username) return;
     document.getElementById("username").innerHTML = username;
+    if (!totalSpent) return;
+    document.getElementById("totalSpent").innerHTML = totalSpent;
 });
