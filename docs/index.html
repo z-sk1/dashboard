@@ -36,15 +36,17 @@
                         <h4>💸 Expense Tracker</h4>
                         <p>Track your spending</p>
                         <p>Total Spending: <span id = "totalSpent">0.00</span> AED</p>
+                        <div class="chart-card">
+                            <h3>Spending Breakdown</h3>
+                            <canvas id="categoryChart"></canvas>
+                        </div>
                     </a>
 
                     <a class="app-card" href="https://z-sk1.github.io/remind-me">
                         <h4>📝 Todo Notes</h4>
                         <p>Keep track of tasks</p>
-                        <div class="chart-card">
-                            <h3>Spending Breakdown</h3>
-                            <canvas id="categoryChart"></canvas>
-                        </div>
+                        <p>Total Notes: <span id = "totalNotes">0</span></p>
+                        <p>Total Reminders: <span id = "totalReminders">0</span></p>
                     </a>
 
                     <!-- Add more tiles later -->
@@ -53,7 +55,7 @@
         </main>
 
         <script src="scripts/dashboard.js"></script>
-        <script src = "scripts/onClick.js"></script>
         <script src = "scripts/chart.js"></script>
+        <script src = "scripts/auth.js"></script>
     </body>
 </html>

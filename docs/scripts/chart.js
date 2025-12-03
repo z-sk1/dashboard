@@ -1,5 +1,3 @@
-const token = localStorage.getItem("token");
-
 let chart; // global so we can destroy and rebuild if needed
 
 async function loadCategoryChart() {

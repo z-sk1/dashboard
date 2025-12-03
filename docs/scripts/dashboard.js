@@ -1,6 +1,4 @@
 const token = localStorage.getItem("token");
-const username = localStorage.getItem("username");
-const totalSpent = localStorage.getItem("totalSpent");
 
 const themeToggle = document.getElementById("themeToggle");
 
@@ -43,11 +41,61 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
     updateButtons();
 });
 
+async function loadUser() {
+    if (!token) return;
+
+    const res = await fetch(`${API_BASE}/me`, {
+        headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    if (!res.ok) {
+        // invalid token or expired
+        localStorage.removeItem("token");
+        return;
+    }
+
+    const data = await res.json();
+    document.getElementById("username").textContent = data.username;
+}
+
+async function loadExpenseTotal() {
+    if (!token) return;
+
+    const res = await fetch(`${API_BASE}/expenses/total`, {
+        headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    const data = await res.json();
+    document.getElementById("totalSpent").textContent = data.total.toFixed(2);
+}
+
+async function loadNoteTotal() {
+    if (!token) return;
+
+    const res = await fetch(`${API_BASE}/notes/total`, {
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+
+    const data = await res.json();
+    document.getElementById("totalNotes").textContent = data.total;
+}
+
+async function loadReminderTotal() {
+    if (!token) return;
+
+    const res = await fetch(`${API_BASE}/reminders/total`, {
+        headers: {"Authorization": `Bearer ${token}`}
+    });
+
+    const data = await res.json();
+    document.getElementById("totalReminders").textContent = data.total;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     updateButtons();
-    if (!username) return;
-    document.getElementById("username").innerHTML = username;
-    if (!totalSpent) return;
-    document.getElementById("totalSpent").innerHTML = totalSpent;
+    loadUser();
+    loadNoteTotal();
+    loadExpenseTotal();
+    loadReminderTotal();
     loadCategoryChart();
 });
